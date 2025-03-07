@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaper & Fluid Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Diaper & Fluid Tracker</h1>
+        
+        <nav>
+            <button onclick="showPage('dashboard')">Dashboard</button>
+            <button onclick="showPage('diaper-log')">Log Diaper</button>
+            <button onclick="showPage('fluid-log')">Log Fluid</button>
+            <button onclick="showPage('analytics')">Analytics</button>
+            <button onclick="showPage('settings')">Settings</button>
+        </nav>
+        
+        <section id="dashboard" class="page">
+            <h2>Dashboard</h2>
+            <p>Overview of recent logs and stats.</p>
+            <div id="recent-logs"></div>
+        </section>
+        
+        <section id="diaper-log" class="page" style="display: none;">
+            <h2>Log Diaper Change</h2>
+            <label>Type: 
+                <select id="diaper-type">
+                    <option value="wet">Wet</option>
+                    <option value="mess">Mess</option>
+                    <option value="both">Both</option>
+                </select>
+            </label>
+            <label>Intensity: 
+                <select id="diaper-intensity">
+                    <option value="light">Light</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="heavy">Heavy</option>
+                </select>
+            </label>
+            <button onclick="logDiaper()">Save</button>
+        </section>
+        
+        <section id="fluid-log" class="page" style="display: none;">
+            <h2>Log Fluid Intake</h2>
+            <label>Type:
+                <select id="fluid-type">
+                    <option value="water">Water</option>
+                    <option value="coffee">Coffee</option>
+                    <option value="tea">Tea</option>
+                    <option value="soda">Soda</option>
+                    <option value="alcohol">Alcohol</option>
+                </select>
+            </label>
+            <label>Amount (oz): <input type="number" id="fluid-amount"></label>
+            <button onclick="logFluid()">Save</button>
+        </section>
+        
+        <section id="analytics" class="page" style="display: none;">
+            <h2>Analytics</h2>
+            <canvas id="analyticsChart"></canvas>
+        </section>
+        
+        <section id="settings" class="page" style="display: none;">
+            <h2>Settings</h2>
+            <p>Data control, PIN lock, and export options.</p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
